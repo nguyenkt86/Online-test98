@@ -2,6 +2,8 @@ package vn.com.itqnu.onlinetest.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import vn.com.itqnu.onlinetest.entity.Account;
 import vn.com.itqnu.onlinetest.model.AccountModel;
 
@@ -18,4 +20,5 @@ public interface AccountService {
 	Account updateAccount(AccountModel accountModel);
 
 	void deleteAccount(Long idAccount);
+	void save(MultipartFile file) ;
 }

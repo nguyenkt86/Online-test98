@@ -4,11 +4,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import vn.com.itqnu.onlinetest.entity.Subject;
 import vn.com.itqnu.onlinetest.model.SubjectModel;
 import vn.com.itqnu.onlinetest.repository.SubjectRepository;
 import vn.com.itqnu.onlinetest.service.SubjectService;
 
+@Service
 public class SubjectServiceImpl implements SubjectService {
 
 	private SubjectRepository subjectRepository;

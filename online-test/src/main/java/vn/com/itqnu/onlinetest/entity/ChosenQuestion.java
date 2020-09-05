@@ -10,8 +10,10 @@ public class ChosenQuestion extends BaseEntity {
 
 	@Column(name = "question_id")
 	private Long questionId;
+	
 	@Column(name = "competition_id")
 	private Long competitionId;
+	
 	public Long getQuestionId() {
 		return questionId;
 	}

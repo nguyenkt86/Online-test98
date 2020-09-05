@@ -1,12 +1,15 @@
 package vn.com.itqnu.onlinetest.service.impl;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import vn.com.itqnu.onlinetest.entity.Account;
+import vn.com.itqnu.onlinetest.helper.ExcelHelper;
 import vn.com.itqnu.onlinetest.model.AccountModel;
 import vn.com.itqnu.onlinetest.repository.AccountRepository;
 import vn.com.itqnu.onlinetest.service.AccountService;
@@ -130,6 +133,18 @@ public class AccountServiceImpl implements AccountService {
 		}
 
 		accountRepository.delete(account);
+	}
+
+	@Override
+	public void save(MultipartFile file) {
+		// TODO Auto-generated method stub
+		try {
+		      List<Account> accounts = ExcelHelper.excelToTutorials(file.getInputStream());
+		      accountRepository.saveAll(accounts);
+		    } catch (IOException e) {
+		      throw new RuntimeException("fail to store excel data: " + e.getMessage());
+		    }
+		
 	}
 
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import vn.com.itqnu.onlinetest.entity.Account;
+import vn.com.itqnu.onlinetest.entity.Competition;
 import vn.com.itqnu.onlinetest.model.CompetitionModel;
 import vn.com.itqnu.onlinetest.model.QuestionModel;
 import vn.com.itqnu.onlinetest.service.CompetitionService;
@@ -36,14 +37,18 @@ public class CompetitionController {
 		this.questionService = questionService;
 	}
 
+//	@GetMapping
+//	public ResponseEntity<?> getAllCompetition(HttpStatus status) {
+//		try {
+//			return ResponseUtil.getSuccess(competitionService.getAllCompetition());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return ResponseUtil.getError(status.BAD_REQUEST, "Get error", e.getMessage());
+//		}
+//	}
 	@GetMapping
-	public ResponseEntity<?> getAllCompetition(HttpStatus status) {
-		try {
-			return ResponseUtil.getSuccess(competitionService.getAllCompetition());
-		} catch (Exception e) {
-			e.printStackTrace();
-			return ResponseUtil.getError(status.BAD_REQUEST, "Get error", e.getMessage());
-		}
+	public List<Competition> getAllCompetition() {
+		return competitionService.getAllCompetition();
 	}
 
 	@GetMapping("/{id}")
@@ -56,14 +61,18 @@ public class CompetitionController {
 		}
 	}
 
-	@PostMapping()
-	public ResponseEntity<?> createCompetition(@RequestBody CompetitionModel competitionModel, HttpStatus status) {
-		try {
-			return ResponseUtil.getSuccess(competitionService.createCompetition(competitionModel));
-		} catch (Exception e) {
-			e.printStackTrace();
-			return ResponseUtil.getError(status.BAD_REQUEST, "Create error", e.getMessage());
-		}
+//	@PostMapping()
+//	public ResponseEntity<?> createCompetition(@RequestBody CompetitionModel competitionModel, HttpStatus status) {
+//		try {
+//			return ResponseUtil.getSuccess(competitionService.createCompetition(competitionModel));
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return ResponseUtil.getError(status.BAD_REQUEST, "Create error", e.getMessage());
+//		}
+//	}
+	@PostMapping
+	public Competition createCompetition(@RequestBody CompetitionModel competitionModel) {
+		return competitionService.createCompetition(competitionModel);
 	}
 
 	@PutMapping
