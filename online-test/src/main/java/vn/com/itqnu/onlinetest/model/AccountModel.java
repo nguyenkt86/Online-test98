@@ -8,6 +8,7 @@ public class AccountModel {
 	private String username;
 	private String password;
 	private String fullName;
+
 	private Date birthday;
 	private boolean gender;
 	private String email;
@@ -19,7 +20,8 @@ public class AccountModel {
 	}
 
 	// Constructor for create account
-	public AccountModel(String fullName, Date birthday, boolean gender, String email, String phone, String address) {
+	public AccountModel(String fullName, String studentNumber, Date birthday, boolean gender, String email,
+			String phone, String address) {
 		super();
 		this.fullName = fullName;
 		this.birthday = birthday;

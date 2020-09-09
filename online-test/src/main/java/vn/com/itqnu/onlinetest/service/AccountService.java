@@ -20,5 +20,6 @@ public interface AccountService {
 	Account updateAccount(AccountModel accountModel);
 
 	void deleteAccount(Long idAccount);
+	
 	void save(MultipartFile file) ;
 }

@@ -1,5 +1,6 @@
 package vn.com.itqnu.onlinetest.service.impl;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,9 +8,11 @@ import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import vn.com.itqnu.onlinetest.entity.Competition;
 import vn.com.itqnu.onlinetest.entity.Question;
+import vn.com.itqnu.onlinetest.helper.QuestionBankHelper;
 import vn.com.itqnu.onlinetest.model.QuestionModel;
 import vn.com.itqnu.onlinetest.repository.QuestionRepository;
 import vn.com.itqnu.onlinetest.service.CompetitionService;
@@ -97,6 +100,17 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	@Override
+	public void save(MultipartFile file) {
+		try {
+			List<Question> question = QuestionBankHelper.excelToTutorials(file.getInputStream());
+			questionRepository.saveAll(question);
+		} catch (IOException e) {
+			throw new RuntimeException("fail to store excel data: " + e.getMessage());
+		}
+
+	}
+
+	@Override
 	public List<QuestionModel> getQuestionByCompetition(Long idCompetition) {
 		return questionRepository.findByCompetitionId(idCompetition);
 	}
@@ -117,17 +131,17 @@ public class QuestionServiceImpl implements QuestionService {
 				listQuestionHard.add(questionModel);
 			}
 		}
-		
+
 		int index = 0;
-		for (int i = 0; i < 10; i ++) {
+		for (int i = 0; i < 10; i++) {
 			index = new Random().nextInt(listQuestionEasy.size());
 			listQuestionTest.add(listQuestionEasy.get(index));
 		}
-		for (int i = 0; i < 10; i ++) {
+		for (int i = 0; i < 10; i++) {
 			index = new Random().nextInt(listQuestionNormal.size());
 			listQuestionTest.add(listQuestionNormal.get(index));
 		}
-		for (int i = 0; i < 10; i ++) {
+		for (int i = 0; i < 10; i++) {
 			index = new Random().nextInt(listQuestionHard.size());
 			listQuestionTest.add(listQuestionHard.get(index));
 		}

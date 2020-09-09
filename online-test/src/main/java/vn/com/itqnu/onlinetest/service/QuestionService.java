@@ -2,6 +2,8 @@ package vn.com.itqnu.onlinetest.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import vn.com.itqnu.onlinetest.entity.Question;
 import vn.com.itqnu.onlinetest.model.QuestionModel;
 
@@ -20,4 +22,6 @@ public interface QuestionService {
 	List<QuestionModel> getQuestionByCompetition(Long idCompetition);
 	
 	List<QuestionModel> buildTest(List<QuestionModel> listQuestionModels);
+	
+	void save(MultipartFile file) ;
 }
