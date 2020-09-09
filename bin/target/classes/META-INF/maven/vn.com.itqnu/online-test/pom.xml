@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-=======
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
->>>>>>> eee09464fbd8ca5e53e5f89336cc55b9441cf2f3
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.3.RELEASE</version>
-<<<<<<< HEAD
-		<relativePath /> <!-- lookup parent from repository -->
-=======
 		<relativePath/> <!-- lookup parent from repository -->
->>>>>>> eee09464fbd8ca5e53e5f89336cc55b9441cf2f3
 	</parent>
 	<groupId>vn.com.itqnu</groupId>
 	<artifactId>online-test</artifactId>
@@ -38,14 +29,6 @@
 		</dependency>
 
 		<dependency>
-<<<<<<< HEAD
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>4.1.2</version>
-		</dependency>
-		<dependency>
-=======
->>>>>>> eee09464fbd8ca5e53e5f89336cc55b9441cf2f3
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
